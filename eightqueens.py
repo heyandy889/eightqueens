@@ -1,6 +1,6 @@
+import random
 
-
-
+DEBUG = False
 
 
 def isSafe(queen1, queen2):
@@ -19,7 +19,8 @@ def isSafe(queen1, queen2):
 
 
 def printKnownError(queens, i, j):
-	print(str(i)+':'+str(queens[i])+' '+str(j)+':'+str(queens[j]))	
+	if DEBUG:
+		print(str(i)+':'+str(queens[i])+' '+str(j)+':'+str(queens[j]))	
 
 def doPuzzle(queens):
 	N = len(queens)
@@ -68,6 +69,15 @@ assert False == doPuzzle( [ (5,2), (4,4), (0,0) ] )
 
 
 
+print('solving...')
+
+queens = [(5,2), (4,4), (0,0)]
 
 
-
+while not doPuzzle(queens):
+	queens = []
+	N = 5
+	for i in range(N):
+		queen = (random.randint(0,N-1), random.randint(0,N-1))
+		queens.append(queen)
+print queens
