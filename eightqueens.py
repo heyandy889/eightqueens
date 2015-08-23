@@ -76,8 +76,11 @@ queens = [(5,2), (4,4), (0,0)]
 
 while not doPuzzle(queens):
 	queens = []
-	N = 5
-	for i in range(N):
+	N = 6
+	while len(queens) < N:
 		queen = (random.randint(0,N-1), random.randint(0,N-1))
-		queens.append(queen)
+		if queen not in queens:
+			queens.append(queen)
+
 print queens
+
